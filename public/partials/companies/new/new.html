@@ -1,0 +1,182 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Empresas
+        <small>Cadastro</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li>
+            <a href="#!/dashboard"><em class="fa fa-dashboard"></em>Home</a>
+        </li>
+        <li>
+            <a href="#!/companies"><em class="fa fa-th"></em>Empresas</a>
+        </li>
+        <li>
+            <a href="#!/companies/new"><em class="fa fa-new"></em>Cadastro</a>
+        </li>
+        <li class="active">Cadastro</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Cadastro</h3>
+            <div class="pull-right">
+                <button
+                    type="button"
+                    class="btn btn-default"
+                    ng-click="eventBack();"
+                >
+                    Voltar
+                </button>
+            </div>
+        </div>
+        <div class="box-body">
+            <form>
+                <div class="form-group">
+                    <label for="active">*Status:</label>
+                    <select
+                        id="active"
+                        class="form-control"
+                        ng-options="active.name for active in dsActive track by active.value"
+                        ng-model="company.active"
+                        ng-readonly="readonly"
+                    >
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cnpj">*CNPJ:</label>
+                    <input
+                        required="true"
+                        type="text"
+                        name="cnpj"
+                        id="cnpj"
+                        class="form-control"
+                        ng-model="company.cnpj"
+                        placeholder="00.000.000/0000-00"
+                        ng-readonly="readonly"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="name">*Nome:</label>
+                    <input
+                        required="true"
+                        type="text"
+                        name="name"
+                        id="name"
+                        class="form-control"
+                        ng-model="company.name"
+                        placeholder="Nome fantasia"
+                        ng-readonly="readonly"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="address">*Endereço:</label>
+                    <input
+                        required="true"
+                        type="text"
+                        name="address"
+                        id="address"
+                        class="form-control"
+                        ng-model="company.address"
+                        placeholder="Rua c"
+                        ng-readonly="readonly"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="number">*Número:</label>
+                    <input
+                        required="true"
+                        type="number"
+                        name="number"
+                        id="number"
+                        class="form-control"
+                        ng-model="company.number"
+                        placeholder="132"
+                        ng-readonly="readonly"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="complement">Complemento:</label>
+                    <input
+                        type="text"
+                        name="complement"
+                        id="complement"
+                        class="form-control"
+                        ng-model="company.complement"
+                        placeholder="BL 12 - AP 12"
+                        ng-readonly="readonly"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="neighborhood">*Bairro:</label>
+                    <input
+                        required="true"
+                        type="text"
+                        name="neighborhood"
+                        id="neighborhood"
+                        class="form-control"
+                        ng-model="company.neighborhood"
+                        placeholder="BL 12 - AP 12"
+                        ng-readonly="readonly"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="country">*Pais:</label>
+                    <input
+                        required="true"
+                        type="text"
+                        name="country"
+                        id="country"
+                        class="form-control"
+                        ng-model="company.country"
+                        value="Brazil"
+                        placeholder="Brasil"
+                        ng-readonly="readonly"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="province">*Estado:</label>
+                    <input
+                        required="true"
+                        type="text"
+                        name="province"
+                        id="province"
+                        class="form-control"
+                        ng-model="company.province"
+                        value="Minas Gerais"
+                        placeholder="Minas Gerais"
+                        ng-readonly="readonly"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="city">*Cidade:</label>
+                    <input
+                        required="true"
+                        type="text"
+                        name="city"
+                        id="city"
+                        class="form-control"
+                        ng-model="company.city"
+                        placeholder="Muzambinho"
+                        ng-readonly="readonly"
+                    />
+                </div>
+            </form>
+            <div class="pull-right" ng-if="!readonly">
+                <button
+                    type="button"
+                    ng-click="eventSave()"
+                    class="btn btn-success"
+                >
+                    Salvar
+                </button>
+            </div>
+        </div>
+        <div class="overlay" ng-if="showLoading">
+            <em class="fa fa-refresh fa-spin"></em>
+        </div>
+    </div>
+</section>
+<!-- /.content -->

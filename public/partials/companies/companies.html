@@ -1,0 +1,138 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Empresas
+        <small>Empresas registradas</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li>
+            <a href="#!/dashboard"><em class="fa fa-dashboard"></em>Home</a>
+        </li>
+        <li>
+            <a href="#!/companies"><em class="fa fa-th"></em>Empresas</a>
+        </li>
+        <li class="active">Empresas</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Empresas registradas</h3>
+            <div class="pull-right">
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    ng-click="eventNew();"
+                >
+                    Cadastrar
+                </button>
+            </div>
+        </div>
+        <div class="box-body table-responsive no-padding">
+            <table class="table table-bordered" title="tabel">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="row">#</th>
+                        <th class="text-center" scope="row">Criada em</th>
+                        <th class="text-center" scope="row">Status</th>
+                        <th class="text-center" scope="row">CNPJ</th>
+                        <th class="text-center" scope="row">Nome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="company in companies">
+                        <td>
+                            <div class="btn-group">
+                                <button
+                                    type="button"
+                                    class="btn btn-default dropdown-toggle btn-xs"
+                                    data-toggle="dropdown"
+                                >
+                                    <span class="caret"></span>
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a
+                                            ng-href="#!/companies/edit/{{
+                                                company._id
+                                            }}"
+                                            >Editar</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            ng-href="#!/companies/view/{{
+                                                company._id
+                                            }}/true"
+                                            >Visualizar</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#!/companies/users/{{
+                                                company._id
+                                            }}"
+                                            >Usuários</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a ng-click="eventDelete(company);"
+                                            >Excluir</a
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            {{
+                                company.createdAt | date: "dd/MM/yyyy HH:mm:ss"
+                            }}
+                        </td>
+                        <td
+                            class="text-center bg bg-success"
+                            ng-if="company.active"
+                        >
+                            Ativa
+                        </td>
+                        <td
+                            class="text-center bg bg-danger"
+                            ng-if="!company.active"
+                        >
+                            Inativa
+                        </td>
+                        <td class="text-center">{{ company.cnpj }}</td>
+                        <td>{{ company.name }}</td>
+                    </tr>
+                    <tr ng-if="companies.length == 0">
+                        <td class="text-center" colspan="5">
+                            Nenhuma empresa registrada
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="clearfix">
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
+        </div>
+        <div class="box-footer clearfix" ng-if="companies.length > 1000">
+            <ul class="pagination pagination-sm no-margin pull-right">
+                <li><a href="#">«</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">»</a></li>
+            </ul>
+        </div>
+        <div class="overlay" ng-if="showLoading">
+            <i class="fa fa-refresh fa-spin"></i>
+        </div>
+    </div>
+</section>
+<!-- /.content -->

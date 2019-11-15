@@ -1,0 +1,46 @@
+doctype html
+html(lang='pt-BR', ng-app="gestec")
+    head
+        include components/head.pug
+    body.hold-transition.skin-purple.sidebar-mini
+        .wrapper
+            header.main-header
+                a.logo(href='#')
+                    span.logo-mini
+                        strong G
+                        | TC
+                    span.logo-lg
+                        strong NODEES6
+                        | GTEC
+                nav.navbar.navbar-static-top
+                    a.sidebar-toggle(data-toggle='push-menu' role='button')
+                        span.sr-only Toggle navigation
+                    include components/togglemenu.pug
+            aside.main-sidebar
+                section.sidebar
+                    .user-panel
+                        .pull-left.image
+                            img.img-circle(src='assets/img/default-50x50.gif' alt='Usuário')
+                        .pull-left.info
+                            p#userLogged
+                //
+                    form.sidebar-form(action='#' method='get')
+                        .input-group
+                            input.form-control(type='text' name='q' placeholder='Search...')
+                            span.input-group-btn
+                                button#search-btn.btn.btn-flat(type='submit' name='search')
+                                i.fa.fa-search
+                include components/menu.pug
+            .content-wrapper(ng-view)
+            footer.main-footer
+                .pull-right.hidden-xs
+                    strong Version
+                    | &nbsp;
+                    strong=version
+                strong
+                    | Copyright &copy; 2014-2019 
+                    a(href='https://adminlte.io') AdminLTE
+                    | .
+                    |  All rights
+                    |       reserved.
+        include components/script.pug
