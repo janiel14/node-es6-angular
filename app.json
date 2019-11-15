@@ -1,13 +1,13 @@
 {
     "apps": [
         {
-            "name": "gestec-sandbox.cognitionsystem.com.br",
+            "name": "node-es6",
             "script": "npm",
             "args": "start",
             "env": {
                 "NODE_ENV": "production",
                 "NODE_PORT": "7010",
-                "NODE_MONGO_URL": "mongodb+srv://gestec_sandbox:q1w2e3r4@cognitionsystem-xodhy.mongodb.net/gestec_sandbox?retryWrites=true&w=majority"
+                "NODE_MONGO_URL": "mongodb+srv://localhost:27017/sample"
             }
         }
     ]
